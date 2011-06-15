@@ -9,7 +9,7 @@ class Devise::CasSessionsController < Devise::SessionsController
   
   def service
     warden.authenticate!(:scope => resource_name)
-    redirect_to after_sign_in_path_for(resource_name)
+    redirect_to redirect_location(resource_name, current_user)
   end
   
   def unregistered
